@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Menubar Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .menu {
+      background-color: #333;
+      overflow: hidden;
+    }
+    .menu a {
+      float: left;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+    .menu a:hover {
+      background-color: #575757;
+    }
+    .dropdown {
+      float: left;
+      overflow: hidden;
+    }
+    .dropdown .dropbtn {
+      cursor: pointer;
+      font-size: 16px;
+      border: none;
+      outline: none;
+      color: white;
+      padding: 14px 20px;
+      background-color: inherit;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #444;
+      min-width: 160px;
+      z-index: 1;
+    }
+    .dropdown-content a {
+      float: none;
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+    }
+    .dropdown-content a:hover {
+      background-color: #575757;
+    }
+    .show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<div class="menu">
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <div class="dropdown">
+    <button class="dropbtn" onclick="toggleMenu()">Services ▼</button>
+    <div class="dropdown-content" id="dropdownMenu">
+      <a href="#design">Web Design</a>
+      <a href="#hosting">Hosting</a>
+      <a href="#seo">SEO</a>
+    </div>
+  </div>
+  <a href="#contact">Contact</a>
+</div>
+
+<script>
+  function toggleMenu() {
+    document.getElementById("dropdownMenu").classList.toggle("show");
+  }
+
+  // Close dropdown if clicked outside
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      let dropdowns = document.getElementsByClassName("dropdown-content");
+      for (let i = 0; i < dropdowns.length; i++) {
+        let openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+</script>
+
+</body>
+</html>
